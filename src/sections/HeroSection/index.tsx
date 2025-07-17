@@ -13,7 +13,7 @@ const HeroSection = () => {
             <div className="max-width py-20">
                 <div className="max-w-[550px] relative z-10">
                     <SectionHeading content="Welcome to Fresh Harvest" />
-                    <h3 className="text-3xl md:text-5xl lg:text-7xl font-medium mb-5">
+                    <h3 className="text-3xl md:text-5xl lg:text-7xl font-medium mb-3 lg:mb-5">
                         Fresh Fruits and Vegetables
                     </h3>
                     <p className="text-sm font-primary mb-7">

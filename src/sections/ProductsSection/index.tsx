@@ -166,30 +166,32 @@ const ProductsSection = () => {
             </div>
 
             {/* Filters */}
-            <div className="flex items-center justify-center gap-4 mb-7">
-                <button
-                    onClick={() => setFilter(null)}
-                    className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer ${
-                        filter === null
-                            ? "text-white border-secondary bg-secondary"
-                            : "text-[#A6A6A6] border-[#A6A6A6] bg-white"
-                    }`}
-                >
-                    All
-                </button>
-                {categories.map((item) => (
+            <div className="w-full overflow-x-auto">
+                <div className="inline-flex gap-2 sm:gap-4 mb-7">
                     <button
-                        key={item.id}
-                        onClick={() => setFilter(item)}
+                        onClick={() => setFilter(null)}
                         className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer ${
-                            filter?.id === item.id
+                            filter === null
                                 ? "text-white border-secondary bg-secondary"
                                 : "text-[#A6A6A6] border-[#A6A6A6] bg-white"
                         }`}
                     >
-                        {capitalize(item.categoryName)}
+                        All
                     </button>
-                ))}
+                    {categories.map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => setFilter(item)}
+                            className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer ${
+                                filter?.id === item.id
+                                    ? "text-white border-secondary bg-secondary"
+                                    : "text-[#A6A6A6] border-[#A6A6A6] bg-white"
+                            }`}
+                        >
+                            {capitalize(item.categoryName)}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             {/* Products */}
