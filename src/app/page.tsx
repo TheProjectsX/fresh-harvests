@@ -1,4 +1,5 @@
 import AboutSection from "@/sections/AboutSection";
+import BlogSection from "@/sections/BlogSection";
 import HeroSection from "@/sections/HeroSection";
 import ProductsSection from "@/sections/ProductsSection";
 import SpecialOfferSection from "@/sections/SpecialOfferSection";
@@ -21,6 +22,9 @@ export default function Home() {
 
             {/* Testimonial Section */}
             <TestimonialSection />
+
+            {/* Blog Posts Section */}
+            <BlogSection />
         </>
     );
 }

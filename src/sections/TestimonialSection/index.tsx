@@ -42,7 +42,7 @@ const TestimonialSection = () => {
             <div className="max-w-[500px] mx-auto mb-6 text-center">
                 <SectionHeading content="Testimonial" className="mx-auto" />
                 <h3 className="font-medium text-3xl md:text-5xl mb-5">
-                    WHat Our Customers Say
+                    What Our Customers Say
                 </h3>
                 <p className="text-sm font-primary">
                     Don't just take our word for it—here's what some of our
