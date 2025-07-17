@@ -30,8 +30,8 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="sticky top-0 mb-8 w-full">
-            <div className="max-width mx-auto px-6 py-6 flex items-center justify-between gap-4">
+        <nav className="fixed top-0 mb-8 w-full z-[999]">
+            <div className="max-width py-6 flex items-center justify-between gap-4">
                 <Link href={"/"} className="flex items-center gap-2">
                     <Image
                         alt="Logo"
@@ -57,36 +57,36 @@ const Navbar = () => {
                 <div className="flex items-center gap-3 lg:gap-5 text-sm">
                     <Link
                         href={"/me/favorites"}
-                        className="hidden md:flex items-center gap-2 text-black"
+                        className="hidden md:flex items-center gap-2 text-white"
                     >
-                        <FaHeart className="text-base" />
+                        <FaHeart className="text-lg" />
                         <span className="hidden lg:inline">Favorites</span>
                     </Link>
                     <Link
                         href={"/me/cart"}
-                        className="flex items-center gap-2 text-black"
+                        className="flex items-center gap-2 text-white"
                     >
-                        <FaShoppingCart className="text-base" />
+                        <FaShoppingCart className="text-lg" />
                         <span className="hidden lg:inline">Cart</span>
                     </Link>
 
-                    <button className="hidden lg:inline px-5 py-1.5 border-2 border-black rounded-sm cursor-pointer active:scale-95 transition-all duration-300 md:duration-100">
+                    <button className="hidden lg:inline px-5 py-1.5 border-2 border-white text-white rounded-sm cursor-pointer active:scale-95 transition-all duration-300 md:duration-100">
                         Sign In
                     </button>
 
                     {/* Menu Button */}
                     <button
                         onClick={() => setNavOpened((prev) => !prev)}
-                        className="lg:hidden cursor-pointer"
+                        className="lg:hidden cursor-pointer text-white"
                     >
-                        <GiHamburgerMenu className="text-base" />
+                        <GiHamburgerMenu className="text-lg" />
                     </button>
                 </div>
             </div>
 
             {/* Smaller Device Navigation  */}
             <div className={`lg:hidden ${navOpened ? "block" : "hidden"}`}>
-                <ul className="px-4">
+                <ul className="p-4 bg-white shadow-2xl">
                     {NavLinks.map((link) => (
                         <li key={link.href}>
                             <Link
