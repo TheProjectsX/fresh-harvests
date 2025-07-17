@@ -9,7 +9,7 @@ import { SectionHeading } from "@/component/Heading";
 
 const HeroSection = () => {
     return (
-        <section className="relative pt-10 bg-slate-50 mb-20">
+        <section className="relative pt-10 bg-slate-50">
             <div className="max-width py-20">
                 <div className="max-w-[550px] relative z-10">
                     <SectionHeading content="Welcome to Fresh Harvest" />

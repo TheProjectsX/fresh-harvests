@@ -7,7 +7,7 @@ export const SectionHeading = ({
 }) => {
     return (
         <h3
-            className={`text-secondary mb-5 px-3 py-1 rounded-sm bg-secondary/15 w-fit font-medium text-lg ${className}`}
+            className={`text-secondary mb-5 px-2.5 py-0.5 rounded-md bg-secondary/15 w-fit font-medium text-lg ${className}`}
         >
             {content}
         </h3>
