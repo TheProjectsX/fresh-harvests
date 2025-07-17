@@ -2,6 +2,7 @@ import AboutSection from "@/sections/AboutSection";
 import HeroSection from "@/sections/HeroSection";
 import ProductsSection from "@/sections/ProductsSection";
 import SpecialOfferSection from "@/sections/SpecialOfferSection";
+import TestimonialSection from "@/sections/TestimonialSection";
 
 export default function Home() {
     return (
@@ -17,6 +18,9 @@ export default function Home() {
 
             {/* Spacial Offer Section */}
             <SpecialOfferSection />
+
+            {/* Testimonial Section */}
+            <TestimonialSection />
         </>
     );
 }
