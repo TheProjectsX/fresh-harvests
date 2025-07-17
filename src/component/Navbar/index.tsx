@@ -30,8 +30,8 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 mb-8 w-full z-[999]">
-            <div className="max-width py-6 flex items-center justify-between gap-4">
+        <nav className="relative w-full">
+            <div className="max-width py-6 flex items-center justify-between gap-4 z-[999] relative">
                 <Link href={"/"} className="flex items-center gap-2">
                     <Image
                         alt="Logo"
@@ -85,13 +85,17 @@ const Navbar = () => {
             </div>
 
             {/* Smaller Device Navigation  */}
-            <div className={`lg:hidden ${navOpened ? "block" : "hidden"}`}>
+            <div
+                className={`lg:hidden absolute left-0 right-0 z-[999] ${
+                    navOpened ? "block" : "hidden"
+                }`}
+            >
                 <ul className="p-4 bg-white shadow-2xl">
                     {NavLinks.map((link) => (
                         <li key={link.href}>
                             <Link
                                 href={link.href}
-                                className="flex justify-center gap-2 px-5 py-2.5 hover:bg-slate-100 rounded-sm active:scale-95 transition-all duration-300 "
+                                className="flex justify-center gap-2 px-5 py-2.5 hover:bg-slate-100 rounded-sm active:scale-95 transition-[scale] duration-300 "
                             >
                                 {link.label}
                             </Link>
@@ -99,6 +103,9 @@ const Navbar = () => {
                     ))}
                 </ul>
             </div>
+
+            {/* Right side design */}
+            <div className="bg-secondary h-full absolute left-[72%] right-0 top-0 bottom-0"></div>
         </nav>
     );
 };

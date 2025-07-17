@@ -5,8 +5,8 @@
 @theme {
     --font-primary: "Rubik", sans-serif;
     --font-secondary: "Questrial", sans-serif;
-    --color-primary: #749b3f;
-    --color-secondary: #ff6a1a;
+    --color-primary: #ff6a1a;
+    --color-secondary: #749b3f;
 }
 
 .max-width {

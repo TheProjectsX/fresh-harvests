@@ -19,13 +19,13 @@ const NavLink = ({
     return (
         <Link
             href={href}
-            className={`flex flex-col items-center px-5 active:scale-95 transition-all duration-300 md:duration-100 group group- ${
+            className={`flex flex-col items-center px-5 active:scale-95 transition-[scale] duration-300 md:duration-100 group group- ${
                 href === currentPathname ? "active" : ""
             } ${className ?? ""}`}
         >
             <span className="w-4 h-1"></span>
             <span className="text-sm">{children ?? label}</span>
-            <span className="w-4 h-1 bg-primary rounded-2xl invisible group-hover:visible group-[.active]:visible"></span>
+            <span className="w-4 h-1 bg-secondary rounded-2xl invisible group-hover:visible group-[.active]:visible"></span>
         </Link>
     );
 };
