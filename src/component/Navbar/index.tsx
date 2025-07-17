@@ -6,8 +6,11 @@ import NavLink from "../NavLink";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+    const currentPathname = usePathname();
+
     const [navOpened, setNavOpened] = useState<boolean>(false);
 
     const NavLinks = [
@@ -30,7 +33,11 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="absolute top-0 w-full">
+        <nav
+            className={`${
+                currentPathname === "/" ? "absolute" : ""
+            } top-0 w-full`}
+        >
             <div className="max-width py-6 flex items-center justify-between gap-4 z-[999] relative">
                 <Link href={"/"} className="flex items-center gap-2">
                     <Image
@@ -54,30 +61,37 @@ const Navbar = () => {
                 </ul>
 
                 {/* Last Part */}
-                <div className="flex items-center gap-3 lg:gap-5 text-sm">
+                <div
+                    className={`flex items-center gap-3 lg:gap-5 text-sm ${
+                        currentPathname === "/" ? "text-white" : "text-black"
+                    }`}
+                >
                     <Link
                         href={"/me/favorites"}
-                        className="hidden md:flex items-center gap-2 text-white"
+                        className="hidden md:flex items-center gap-2"
                     >
                         <FaHeart className="text-xl" />
                         <span className="hidden lg:inline">Favorites</span>
                     </Link>
-                    <Link
-                        href={"/me/cart"}
-                        className="flex items-center gap-2 text-white"
-                    >
+                    <Link href={"/me/cart"} className="flex items-center gap-2">
                         <FaShoppingCart className="text-xl" />
                         <span className="hidden lg:inline">Cart</span>
                     </Link>
 
-                    <button className="hidden lg:inline px-5 py-1.5 border-2 border-white text-white rounded-sm cursor-pointer active:scale-95 transition-all duration-300 md:duration-100">
+                    <button
+                        className={`hidden lg:inline px-5 py-1.5 border-2 rounded-sm cursor-pointer active:scale-95 transition-all duration-300 md:duration-100 ${
+                            currentPathname === "/"
+                                ? "border-white"
+                                : "border-black"
+                        }`}
+                    >
                         Sign In
                     </button>
 
                     {/* Menu Button */}
                     <button
                         onClick={() => setNavOpened((prev) => !prev)}
-                        className="lg:hidden cursor-pointer text-white"
+                        className="lg:hidden cursor-pointer"
                     >
                         <GiHamburgerMenu className="text-xl" />
                     </button>

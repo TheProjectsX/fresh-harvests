@@ -111,6 +111,7 @@ const Footer = () => {
                                 <Image
                                     alt="App Store"
                                     src={AppStoreImage.src}
+                                    className="w-[130px] h-auto"
                                     width={130}
                                     height={40}
                                 />
@@ -119,6 +120,7 @@ const Footer = () => {
                                 <Image
                                     alt="Play Store"
                                     src={PlayStoreImage.src}
+                                    className="w-[130px] h-auto"
                                     width={130}
                                     height={40}
                                 />
@@ -134,21 +136,21 @@ const Footer = () => {
                             <Image
                                 alt="Visa"
                                 src={VisaImage.src}
-                                className="bg-white rounded-sm"
+                                className="bg-white rounded-sm w-[70px] h-auto"
                                 width={70}
                                 height={50}
                             />
                             <Image
                                 alt="Paypal"
                                 src={PaypalImage.src}
-                                className="bg-white rounded-sm"
+                                className="bg-white rounded-sm w-[70px] h-auto"
                                 width={70}
                                 height={50}
                             />
                             <Image
                                 alt="Google Pay"
                                 src={PayImage.src}
-                                className="bg-white rounded-sm"
+                                className="bg-white rounded-sm w-[70px] h-auto"
                                 width={70}
                                 height={50}
                             />

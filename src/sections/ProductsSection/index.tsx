@@ -1,9 +1,10 @@
 "use client";
 
 import { SectionHeading } from "@/component/Heading";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-type Product = {
+export type Product = {
     id: string;
     productName: string;
     description: string;
@@ -16,7 +17,7 @@ type Product = {
     updatedAt: string;
 };
 
-type Category = {
+export type Category = {
     id: string;
     categoryName: string;
     createdAt: string;
@@ -228,9 +229,12 @@ const ProductsSection = () => {
                                     />
                                 </div>
 
-                                <h6 className="font-medium sm:text-lg">
+                                <Link
+                                    href={`/products/${product.id}`}
+                                    className="font-medium sm:text-lg hover:underline underline-offset-4"
+                                >
                                     {product.productName}
-                                </h6>
+                                </Link>
                                 <p className="text-[#4A4A52] sm:text-lg mb-2 font-primary">
                                     ${product.price}/kg
                                 </p>

@@ -51,6 +51,7 @@ const HeroSection = () => {
                                 <Image
                                     alt="App Store"
                                     src={AppStoreImage.src}
+                                    className="w-[130px] h-auto"
                                     width={130}
                                     height={40}
                                 />
@@ -59,6 +60,7 @@ const HeroSection = () => {
                                 <Image
                                     alt="Play Store"
                                     src={PlayStoreImage.src}
+                                    className="w-[130px] h-auto"
                                     width={130}
                                     height={40}
                                 />
