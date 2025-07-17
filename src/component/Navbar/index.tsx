@@ -39,7 +39,7 @@ const Navbar = () => {
                         width={35}
                         height={35}
                     />
-                    <h3 className="text-4xl font-medium sm:text-2xl sm:font-semibold">
+                    <h3 className="text-2xl font-medium sm:text-4xl sm:font-semibold">
                         Fresh Harvests
                     </h3>
                 </Link>
