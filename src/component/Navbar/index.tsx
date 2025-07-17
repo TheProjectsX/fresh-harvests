@@ -30,7 +30,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="relative w-full">
+        <nav className="absolute top-0 w-full">
             <div className="max-width py-6 flex items-center justify-between gap-4 z-[999] relative">
                 <Link href={"/"} className="flex items-center gap-2">
                     <Image
@@ -59,14 +59,14 @@ const Navbar = () => {
                         href={"/me/favorites"}
                         className="hidden md:flex items-center gap-2 text-white"
                     >
-                        <FaHeart className="text-lg" />
+                        <FaHeart className="text-xl" />
                         <span className="hidden lg:inline">Favorites</span>
                     </Link>
                     <Link
                         href={"/me/cart"}
                         className="flex items-center gap-2 text-white"
                     >
-                        <FaShoppingCart className="text-lg" />
+                        <FaShoppingCart className="text-xl" />
                         <span className="hidden lg:inline">Cart</span>
                     </Link>
 
@@ -79,7 +79,7 @@ const Navbar = () => {
                         onClick={() => setNavOpened((prev) => !prev)}
                         className="lg:hidden cursor-pointer text-white"
                     >
-                        <GiHamburgerMenu className="text-lg" />
+                        <GiHamburgerMenu className="text-xl" />
                     </button>
                 </div>
             </div>
@@ -103,9 +103,6 @@ const Navbar = () => {
                     ))}
                 </ul>
             </div>
-
-            {/* Right side design */}
-            <div className="bg-secondary h-full absolute left-[72%] right-0 top-0 bottom-0"></div>
         </nav>
     );
 };

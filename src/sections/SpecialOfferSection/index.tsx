@@ -10,11 +10,11 @@ const SpecialOfferSection = () => {
 
     return (
         <section
-            className="w-full py-10 bg-no-repeat bg-center bg-auto"
+            className="w-full py-10 bg-no-repeat bg-center bg-auto text-center md:text-left"
             style={{ backgroundImage: `url(${BannerImage.src})` }}
         >
             <div className="max-width">
-                <SectionHeading content="Special Offer" />
+                <SectionHeading content="Special Offer" className="mx-auto md:mx-0"/>
                 <h3 className="text-3xl md:text-5xl lg:text-6xl font-medium mb-3">
                     Seasonal Fruit Bundle
                 </h3>
@@ -23,7 +23,7 @@ const SpecialOfferSection = () => {
                 </p>
 
                 {/* Countdown */}
-                <div className="mb-3 flex items-center gap-2">
+                <div className="mb-4 flex items-center justify-center md:justify-start gap-2">
                     <Countdown
                         date={offerTime}
                         renderer={({ days, hours, minutes, seconds }) => {
@@ -71,7 +71,7 @@ const SpecialOfferSection = () => {
                     />
                 </div>
 
-                <p className="font-semibold uppercase px-4 py-1.5 rounded-full bg-[#176D38] w-fit text-lg">
+                <p className="font-semibold uppercase px-4 py-1.5 rounded-full bg-[#176D38] w-fit text-lg mx-auto md:mx-0">
                     <span className="text-white">Code: </span>
                     <span className="text-[#FAC714]">Fresh28</span>
                 </p>

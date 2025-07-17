@@ -1,3 +1,4 @@
+import HeroImage from "@/assets/images/hero-image.png";
 import HeroOfferImage from "@/assets/images/hero-offer.png";
 import AppStoreImage from "@/assets/images/app-store.png";
 import PlayStoreImage from "@/assets/images/play-store.png";
@@ -9,7 +10,7 @@ import { SectionHeading } from "@/component/Heading";
 
 const HeroSection = () => {
     return (
-        <section className="relative pt-10 bg-slate-50">
+        <section className="relative pt-10 bg-slate-50 pb-15 sm:pb-0 overflow-x-hidden">
             <div className="max-width py-20">
                 <div className="max-w-[550px] relative z-10">
                     <SectionHeading content="Welcome to Fresh Harvest" />
@@ -35,12 +36,12 @@ const HeroSection = () => {
                             src={HeroOfferImage.src}
                             width={330}
                             height={155}
-                            className="rounded-2xl"
+                            className="rounded-2xl w-60 sm:w-80"
                         />
                     </div>
 
                     {/* App */}
-                    <div>
+                    <div className="relative top-20 sm:top-0">
                         <p className="text-sm font-primary mb-2">
                             Download App:
                         </p>
@@ -69,6 +70,13 @@ const HeroSection = () => {
 
             {/* Right side design */}
             <div className="bg-secondary h-full absolute left-[72%] right-0 top-0 bottom-0"></div>
+            <Image
+                src={HeroImage.src}
+                alt="Hero Image"
+                width={770}
+                height={860}
+                className="absolute translate-x-12 sm:translate-x-0 right-0 bottom-0 w-[80%] max-w-[400px] md:max-w-none md:w-[40%] h-auto"
+            />
         </section>
     );
 };
