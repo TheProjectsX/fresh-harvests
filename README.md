@@ -1,5 +1,9 @@
 ## 🛠️ Project Setup & Documentation
 
+### 🔗 Live Demo
+
+[https://fresh-harvests-omega.vercel.app/](https://fresh-harvests-omega.vercel.app/)
+
 ### 🚀 How to Run the Project Locally
 
 1. **Clone the Repository**
