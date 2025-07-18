@@ -32,14 +32,7 @@ const SingleProduct = async ({
     // } catch (error) {}
 
     return (
-        <>
-            <section className="max-width">
-                <ProductDesc
-                    productData={productData}
-                    categoryData={categoryData}
-                />
-            </section>
-        </>
+        <ProductDesc productData={productData} categoryData={categoryData} />
     );
 };
 
