@@ -1,6 +1,10 @@
 "use client";
 
-import type { Category, Product } from "@/sections/ProductsSection";
+import {
+    capitalize,
+    type Category,
+    type Product,
+} from "@/sections/ProductsSection";
 import { SectionHeading } from "@/component/Heading";
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
@@ -45,9 +49,9 @@ const ProductDesc = ({
 
     return (
         <>
-            <section className="max-width flex items-center gap-6">
+            <section className="max-width flex flex-col md:flex-row items-center gap-8">
                 {/* Images */}
-                <div className="flex-1/2">
+                <div className="flex-1/2 border border-[#0000001A] rounded-lg overflow-hidden">
                     <Carousel
                         showThumbs={false}
                         showStatus={false}
@@ -73,14 +77,17 @@ const ProductDesc = ({
                 {/* Data */}
                 <div className="flex-1/2 flex flex-col">
                     <div className="flex-1">
-                        <SectionHeading content={categoryData.categoryName} />
+                        <SectionHeading
+                            content={capitalize(categoryData.categoryName)}
+                            className="!mb-2 md:!mb-6"
+                        />
 
-                        <h2 className="font-medium text-xl sm:text-3xl md:text-5xl mb-2">
+                        <h2 className="font-medium text-xl sm:text-3xl md:text-5xl md:mb-2">
                             {productData.productName}
                         </h2>
 
                         <div className="flex items-center gap-1.5 mb-4">
-                            <span className="text-lg text-yellow-500 flex items-center gap-1">
+                            <span className="text-lg text-yellow-500 flex items-center gap-2">
                                 <IoIosStar />
                                 <IoIosStar />
                                 <IoIosStar />
@@ -129,7 +136,7 @@ const ProductDesc = ({
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex gap-2.5">
+                    <div className="flex flex-col sm:flex-row gap-2.5">
                         <button className="flex-1/2 py-3 rounded-sm flex items-center justify-center gap-2 bg-[#F4F6F6] hover:text-white hover:bg-primary group cursor-pointer">
                             <FaHeart className="text-2xl text-[#D9D9D9] group-hover:text-white" />
                             Save as Favorite
