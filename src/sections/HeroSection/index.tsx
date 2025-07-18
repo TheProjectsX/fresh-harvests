@@ -71,13 +71,13 @@ const HeroSection = () => {
             </div>
 
             {/* Right side design */}
-            <div className="bg-secondary h-full absolute left-[75%] sm:left-[72%] right-0 top-0 bottom-0"></div>
+            <div className="bg-secondary h-full absolute left-[75%] sm:left-[72%] xl:left-[65%] right-0 top-0 bottom-0"></div>
             <Image
                 src={HeroImage.src}
                 alt="Hero Image"
                 width={770}
                 height={860}
-                className="absolute translate-x-12 sm:translate-x-0 right-0 bottom-0 w-[80%] max-w-[400px] md:max-w-none md:w-[40%] h-auto"
+                className="absolute translate-x-12 sm:translate-x-0 right-0 lg:right-[10%] bottom-0 w-[80%] max-w-[400px] md:max-w-[535px] md:w-[40%] h-auto"
             />
         </section>
     );
