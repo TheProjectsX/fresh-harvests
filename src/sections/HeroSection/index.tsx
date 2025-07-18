@@ -13,7 +13,7 @@ const HeroSection = () => {
         <section className="relative pt-10 bg-slate-50 pb-15 sm:pb-0 overflow-x-hidden">
             <div className="max-width py-20">
                 <div className="max-w-[550px] relative z-10">
-                    <SectionHeading content="Welcome to Fresh Harvest" />
+                    <SectionHeading content="Welcome to Fresh Harvest"/>
                     <h3 className="text-3xl md:text-5xl lg:text-7xl font-medium mb-3 lg:mb-5">
                         Fresh Fruits and Vegetables
                     </h3>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right side design */}
-            <div className="bg-secondary h-full absolute left-[72%] right-0 top-0 bottom-0"></div>
+            <div className="bg-secondary h-full absolute left-[75%] sm:left-[72%] right-0 top-0 bottom-0"></div>
             <Image
                 src={HeroImage.src}
                 alt="Hero Image"

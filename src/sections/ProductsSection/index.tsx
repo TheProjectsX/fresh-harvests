@@ -147,7 +147,7 @@ const ProductsSection = () => {
     const [showAllProducts, setShowAllProducts] = useState<boolean>(false);
 
     useEffect(() => {
-        if (!products[0]) return;
+        if (products.length > 0 && products[0] === null) return;
         if (filter === null) return setProducts(InitialProducts);
 
         setProducts(
@@ -175,7 +175,7 @@ const ProductsSection = () => {
                 <div className="inline-flex gap-2 sm:gap-4 mb-7">
                     <button
                         onClick={() => setFilter(null)}
-                        className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer ${
+                        className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer hover:text-white hover:border-secondary hover:bg-secondary ${
                             filter === null
                                 ? "text-white border-secondary bg-secondary"
                                 : "text-[#A6A6A6] border-[#A6A6A6] bg-white"
@@ -187,7 +187,7 @@ const ProductsSection = () => {
                         <button
                             key={item.id}
                             onClick={() => setFilter(item)}
-                            className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer ${
+                            className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer hover:text-white hover:border-secondary hover:bg-secondary ${
                                 filter?.id === item.id
                                     ? "text-white border-secondary bg-secondary"
                                     : "text-[#A6A6A6] border-[#A6A6A6] bg-white"
