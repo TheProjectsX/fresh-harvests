@@ -82,7 +82,13 @@ const Navbar = () => {
                             href={"/me/cart"}
                             className="flex items-center gap-2"
                         >
-                            <FaShoppingCart className="text-xl" />
+                            <span className="relative">
+                                <FaShoppingCart className="text-xl" />
+                                <span className="absolute -top-1.5 -right-1 text-white text-xs px-1 bg-primary rounded-full">
+                                    3
+                                </span>
+                            </span>
+
                             <span className="hidden lg:inline">Cart</span>
                         </Link>
 
