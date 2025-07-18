@@ -1,5 +1,5 @@
 import baseApiSlice, { baseQuery } from "@/store/app/baseApi/baseApiSlice";
-import store from "../../store";
+import store from "@/store/app/store";
 
 const productsApiSlice = baseApiSlice.injectEndpoints({
     endpoints: (builder) => ({

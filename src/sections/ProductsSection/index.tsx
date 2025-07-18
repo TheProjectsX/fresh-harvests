@@ -2,8 +2,10 @@
 
 import { SectionHeading } from "@/component/Heading";
 import ProductCard from "@/component/ProductCard";
-import Link from "next/link";
+import { useFetchCategoriesQuery } from "@/store/features/categories/categoriesApiSlice";
+import { useFetchProductsQuery } from "@/store/features/products/productsApiSlice";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export type Product = {
     id: string;
@@ -25,91 +27,15 @@ export type Category = {
     updatedAt: string;
 };
 
-export const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-
-// TEMP
-const InitialProducts = [
-    {
-        id: "67514a611cdb919fe028cf09",
-        productName: "Banana",
-        description:
-            "Bananas are elongated, yellow fruits with a sweet, creamy flesh, commonly eaten fresh or used in smoothies, desserts, and baked goods. They are rich in nutrients like potassium, vitamin C, and dietary fiber, making them a popular and healthy snack worldwide.",
-        price: 20.99,
-        stock: 50,
-        images: ["https://i.ibb.co.com/cyCs2B7/banana.jpg"],
-        categoryId: "6751516f9c52879c1fde6558",
-        isDeleted: false,
-        createdAt: "2024-12-05T06:38:25.687Z",
-        updatedAt: "2024-12-05T06:38:25.687Z",
-    },
-    {
-        id: "675153ac1cdb919fe028cf0a",
-        productName: "Coconut",
-        description:
-            "Coconut is a versatile tropical fruit widely used in culinary dishes and beverages. It offers various edible parts, including the water, tender flesh, and mature meat. Coconut can be consumed fresh, dried, or processed into products like coconut oil, milk, cream, and flour. Its mildly sweet flavor and rich texture make it a popular ingredient in both savory and sweet dishes, particularly in Asian, Caribbean, and tropical cuisines. Additionally, it's valued for its nutritional benefits, providing healthy fats, fiber, and essential minerals like potassium and magnesium.",
-        price: 200,
-        stock: 50,
-        images: ["https://i.ibb.co.com/pWpwg7h/coconut.jpg"],
-        categoryId: "6751516f9c52879c1fde6558",
-        isDeleted: false,
-        createdAt: "2024-12-05T07:18:04.783Z",
-        updatedAt: "2024-12-06T09:54:40.366Z",
-    },
-    {
-        id: "675154d81cdb919fe028cf0b",
-        productName: "Guava",
-        description:
-            "Guava is a tropical fruit known for its sweet and tangy flavor, often enjoyed fresh, juiced, or in desserts. It has a soft, edible skin and a juicy interior filled with tiny seeds. Guava is rich in vitamin C, fiber, and antioxidants, making it a nutritious choice. Its unique taste and aroma make it a popular ingredient in smoothies, jams, and salads, as well as in savory dishes in some cuisines. Guava is also prized for its health benefits, including boosting immunity and aiding digestion.",
-        price: 20,
-        stock: 500,
-        images: ["https://i.ibb.co.com/J7CXmBQ/Guava.png"],
-        categoryId: "6751516f9c52879c1fde6558",
-        isDeleted: false,
-        createdAt: "2024-12-05T07:23:04.640Z",
-        updatedAt: "2024-12-06T09:56:22.205Z",
-    },
-    {
-        id: "6751559b1cdb919fe028cf0c",
-        productName: "Pomegranate",
-        description:
-            "Pomegranate is a nutrient-rich fruit prized for its vibrant red seeds, known as arils, which are juicy, sweet, and slightly tart. It is often eaten fresh, added to salads, or used in juices, sauces, and desserts. Pomegranate is a powerhouse of antioxidants, vitamins (especially vitamin C), and fiber, contributing to numerous health benefits, including improved heart health and reduced inflammation. Its bold flavor and visual appeal make it a favorite in both savory and sweet dishes across various cuisines.",
-        price: 100,
-        stock: 200,
-        images: ["https://i.ibb.co.com/3p2VXxn/pomegrate.webp"],
-        categoryId: "6751516f9c52879c1fde6558",
-        isDeleted: false,
-        createdAt: "2024-12-05T07:26:19.680Z",
-        updatedAt: "2024-12-06T09:57:55.466Z",
-    },
-    {
-        id: "6751563d1cdb919fe028cf0d",
-        productName: "Kiwi",
-        description:
-            "Kiwi is a small, nutrient-packed fruit with a fuzzy brown skin and bright green or golden flesh dotted with tiny black seeds. It has a sweet and tangy flavor, making it a refreshing snack or addition to salads, smoothies, and desserts. Kiwi is an excellent source of vitamin C, fiber, and antioxidants, supporting immunity and digestion. Its vibrant color and unique taste also make it a popular choice for garnishing dishes and beverages.",
-        price: 70,
-        stock: 400,
-        images: ["https://i.ibb.co.com/QCVLYj2/Kiwi.jpg"],
-        categoryId: "6751516f9c52879c1fde6558",
-        isDeleted: false,
-        createdAt: "2024-12-05T07:29:01.734Z",
-        updatedAt: "2024-12-06T09:59:17.593Z",
-    },
-    {
-        id: "675157591cdb919fe028cf0e",
-        productName: "Mustard",
-        description:
-            "Mustard greens are leafy vegetables from the mustard plant, known for their peppery and slightly bitter flavor. They are commonly used in salads, stir-fries, soups, and stews, as well as in pickling and traditional dishes like Indian saag or Southern-style greens. Mustard greens are rich in vitamins A, C, and K, along with fiber and antioxidants, making them a highly nutritious choice. Their bold taste and tender texture add depth to a variety of savory dishes.",
-        price: 30,
-        stock: 200,
-        images: ["https://i.ibb.co.com/bKBD5V5/mustard.png"],
-        categoryId: "6751569e0e539396658e60a9",
-        isDeleted: false,
-        createdAt: "2024-12-05T07:33:45.060Z",
-        updatedAt: "2024-12-06T10:00:42.627Z",
-    },
-];
+export const capitalize = (str: string) =>
+    str.charAt(0).toUpperCase() + str.slice(1);
 
 const ProductsSection = () => {
+    const { data: InitialProducts, isLoading: isProductsLoading } =
+        useFetchProductsQuery({});
+    const { data: InitialCategories, isLoading: isCategoriesLoading } =
+        useFetchCategoriesQuery({});
+
     const maxItems = 6;
 
     const [categories, setCategories] = useState<Category[]>([
@@ -141,21 +67,43 @@ const ProductsSection = () => {
     const [filter, setFilter] = useState<Category | null>(null);
 
     const [products, setProducts] = useState<Product[] | null[]>(
-        InitialProducts
+        Array(maxItems).fill(null)
     );
 
     const [showAllProducts, setShowAllProducts] = useState<boolean>(false);
 
     useEffect(() => {
         if (products.length > 0 && products[0] === null) return;
-        if (filter === null) return setProducts(InitialProducts);
+        if (filter === null) return setProducts(InitialProducts.data ?? []);
 
         setProducts(
-            InitialProducts.filter(
-                (product) => product.categoryId === filter.id
+            (InitialProducts.data ?? []).filter(
+                (product: Product) => product.categoryId === filter.id
             )
         );
     }, [filter]);
+
+    // If Products Data Loaded
+    useEffect(() => {
+        if (isProductsLoading) return;
+        if (!InitialProducts) return;
+        if (!InitialProducts.success) {
+            toast.error("Failed to Fetch Products");
+            setProducts([]);
+            return;
+        }
+
+        setProducts(InitialProducts.data);
+    }, [InitialProducts, isProductsLoading]);
+
+    // If Categories Data Loaded
+    useEffect(() => {
+        if (isCategoriesLoading) return;
+        if (!InitialCategories) return;
+        if (!InitialCategories.success) return;
+
+        setCategories(InitialCategories.data);
+    }, [InitialCategories, isCategoriesLoading]);
 
     return (
         <section className="max-width text-center">
@@ -200,13 +148,21 @@ const ProductsSection = () => {
             </div>
 
             {/* Products */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-                {products
-                    .slice(0, showAllProducts ? undefined : maxItems)
-                    .map((product, idx) => (
-                        <ProductCard key={idx} product={product} />
-                    ))}
-            </div>
+            {products.length === 0 && (
+                <p className="py-4 italic font-secondary font-semibold text-lg">
+                    No Products to Show!
+                </p>
+            )}
+
+            {products.length > 0 && (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+                    {products
+                        .slice(0, showAllProducts ? undefined : maxItems)
+                        .map((product, idx) => (
+                            <ProductCard key={idx} product={product} />
+                        ))}
+                </div>
+            )}
 
             {products.length > maxItems && (
                 <button
