@@ -1,7 +1,6 @@
 import { fetchProductServerSide } from "@/store/features/products/productsApiSlice";
 import ProductDesc from "./ProductDesc";
-import { toast } from "react-toastify";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import type { Product } from "@/sections/ProductsSection";
 
 const SingleProduct = async ({

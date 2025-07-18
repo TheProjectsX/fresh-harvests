@@ -10,6 +10,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import ProductCard from "@/component/ProductCard";
 import { useFetchSingleCategoryQuery } from "@/store/features/categories/categoriesApiSlice";
 import { useFetchProductsQuery } from "@/store/features/products/productsApiSlice";
+import ReactHead from "@theprojectsx/react-head";
 
 const ProductDesc = ({ productData }: { productData: Product }) => {
     const { data: categoryData } = useFetchSingleCategoryQuery({
@@ -60,6 +61,13 @@ const ProductDesc = ({ productData }: { productData: Product }) => {
 
     return (
         <>
+            <ReactHead>
+                <title>{`${productData.productName} - Fresh Harvests`}</title>
+                <meta
+                    name="description"
+                    content={productData.description.slice(0, 25)}
+                />
+            </ReactHead>
             <section className="max-width flex flex-col md:flex-row items-center gap-8">
                 {/* Images */}
                 <div className="flex-1/2 border border-[#0000001A] rounded-lg overflow-hidden">
