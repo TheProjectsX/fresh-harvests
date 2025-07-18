@@ -1,25 +1,23 @@
 "use client";
 
-import {
-    capitalize,
-    type Category,
-    type Product,
-} from "@/sections/ProductsSection";
+import { capitalize, type Product } from "@/sections/ProductsSection";
 import { SectionHeading } from "@/component/Heading";
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
 import { Carousel } from "react-responsive-carousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import ProductCard from "@/component/ProductCard";
+import { useFetchSingleCategoryQuery } from "@/store/features/categories/categoriesApiSlice";
+import { useFetchProductsQuery } from "@/store/features/products/productsApiSlice";
 
-const ProductDesc = ({
-    productData,
-    categoryData,
-}: {
-    productData: Product;
-    categoryData: Category;
-}) => {
+const ProductDesc = ({ productData }: { productData: Product }) => {
+    const { data: categoryData } = useFetchSingleCategoryQuery({
+        id: productData.categoryId,
+    });
+    const { data: InitialProducts, isLoading: isProductsLoading } =
+        useFetchProductsQuery({});
+
     const [quantity, setQuantity] = useState<number>(1);
     const [relatedProducts, setRelatedProducts] = useState<Product[] | null[]>(
         Array(4).fill(null)
@@ -46,6 +44,19 @@ const ProductDesc = ({
             </>
         );
     };
+
+    useEffect(() => {
+        if (isProductsLoading) return;
+        if (!InitialProducts.success) {
+            setRelatedProducts([]);
+            return;
+        }
+
+        const filteredProducts = (InitialProducts.data as Product[]).filter(
+            (product) => product.categoryId === productData.categoryId
+        );
+        setRelatedProducts(filteredProducts);
+    }, [InitialProducts, isProductsLoading]);
 
     return (
         <>
@@ -77,10 +88,14 @@ const ProductDesc = ({
                 {/* Data */}
                 <div className="flex-1/2 flex flex-col">
                     <div className="flex-1">
-                        <SectionHeading
-                            content={capitalize(categoryData.categoryName)}
-                            className="!mb-2 md:!mb-6"
-                        />
+                        {categoryData && (
+                            <SectionHeading
+                                content={capitalize(
+                                    categoryData.data.categoryName
+                                )}
+                                className="!mb-2 md:!mb-6"
+                            />
+                        )}
 
                         <h2 className="font-medium text-xl sm:text-3xl md:text-5xl md:mb-2">
                             {productData.productName}
@@ -168,17 +183,22 @@ const ProductDesc = ({
 
             {/* Related Products */}
             <section className="max-width">
-                <SectionHeading content="Our Products" className="mx-auto" />
-                <h3 className="font-medium text-3xl md:text-5xl mb-5 text-center">
-                    Related Products
-                </h3>
-                <p className="text-sm font-primary">
-                    We pride ourselves on offering a wide variety of fresh and
-                    flavorful fruits, vegetables, and salad ingredients.
-                </p>
+                <div className="max-w-[500px] mx-auto mb-6">
+                    <SectionHeading
+                        content="Our Products"
+                        className="mx-auto"
+                    />
+                    <h3 className="font-medium text-3xl md:text-5xl mb-5 text-center">
+                        Related Products
+                    </h3>
+                    <p className="text-sm text-center font-primary">
+                        We pride ourselves on offering a wide variety of fresh
+                        and flavorful fruits, vegetables, and salad ingredients.
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-                    {relatedProducts.map((product, idx) => (
+                    {relatedProducts.slice(0, 4).map((product, idx) => (
                         <ProductCard key={idx} product={product} />
                     ))}
                 </div>

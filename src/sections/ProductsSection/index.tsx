@@ -36,7 +36,7 @@ const ProductsSection = () => {
     const { data: InitialCategories, isLoading: isCategoriesLoading } =
         useFetchCategoriesQuery({});
 
-    const maxItems = 6;
+    const maxItems = 8;
 
     const [categories, setCategories] = useState<Category[]>([
         {

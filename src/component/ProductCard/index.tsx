@@ -14,7 +14,7 @@ const ProductCard = ({ product }: { product: Product | null }) => {
     }
 
     return (
-        <div key={product.id} className="p-2.5 shadow-xl rounded-lg">
+        <div key={product.id} className="p-2.5 shadow-xl rounded-lg text-center">
             <div className="w-full aspect-square flex items-center justify-center rounded-xl overflow-hidden mb-3 bg-[#F4F6F6]">
                 <img
                     src={product.images[0]}

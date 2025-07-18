@@ -4,6 +4,7 @@ import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Wrapper from "@/component/Wrapper";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -18,15 +19,17 @@ export default function RootLayout({
     return (
         <html lang="en" className="">
             <body className="font-primary min-h-screen">
-                <header>
-                    <Navbar />
-                </header>
+                <Wrapper>
+                    <header>
+                        <Navbar />
+                    </header>
 
-                <main className="space-y-20 mb-20">{children}</main>
+                    <main className="space-y-20 mb-20">{children}</main>
 
-                <footer>
-                    <Footer />
-                </footer>
+                    <footer>
+                        <Footer />
+                    </footer>
+                </Wrapper>
             </body>
         </html>
     );
