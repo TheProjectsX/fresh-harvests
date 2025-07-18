@@ -119,8 +119,8 @@ const ProductsSection = () => {
             </div>
 
             {/* Filters */}
-            <div className="w-full overflow-x-auto">
-                <div className="inline-flex gap-2 sm:gap-4 mb-7">
+            <div className="w-full overflow-x-auto mb-7">
+                <div className="inline-flex gap-2 sm:gap-4">
                     <button
                         onClick={() => setFilter(null)}
                         className={`px-4 sm:px-5 py-1.5 text-sm sm:text-base border rounded-md cursor-pointer hover:text-white hover:border-secondary hover:bg-secondary ${
@@ -155,7 +155,7 @@ const ProductsSection = () => {
             )}
 
             {products.length > 0 && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-6">
                     {products
                         .slice(0, showAllProducts ? undefined : maxItems)
                         .map((product, idx) => (
