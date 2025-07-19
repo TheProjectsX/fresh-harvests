@@ -43,7 +43,7 @@ export default function RootLayout({
                         <Navbar />
                     </header>
 
-                    <main className="space-y-20 mb-20">{children}</main>
+                    <main className="space-y-16 mb-12 md:space-y-20 md:mb-16">{children}</main>
 
                     <footer>
                         <Footer />

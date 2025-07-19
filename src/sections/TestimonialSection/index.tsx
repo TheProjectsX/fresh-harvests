@@ -1,8 +1,9 @@
 "use client";
 
+import LeafImage from "@/assets/images/leaf.png";
+import ThoughtLinesImage from "@/assets/images/thought-lines.png";
 import { SectionHeading } from "@/component/Heading";
 import { Carousel } from "react-responsive-carousel";
-import LeafImage from "@/assets/images/leaf.png";
 import Image from "next/image";
 
 const TestimonialSection = () => {
@@ -66,7 +67,7 @@ const TestimonialSection = () => {
                             key={idx}
                             className="flex flex-col md:flex-row items-center gap-6 md:gap-10 select-none"
                         >
-                            <div className="shrink-0 w-46 h-72">
+                            <div className="relative shrink-0 w-46 h-72">
                                 <Image
                                     src={testimonial.image}
                                     alt={testimonial.name}
@@ -74,12 +75,21 @@ const TestimonialSection = () => {
                                     width={200}
                                     height={300}
                                 />
+
+                                {/* Thought Lines */}
+                                <Image
+                                    src={ThoughtLinesImage.src}
+                                    alt="Thought Lines"
+                                    width={ThoughtLinesImage.width}
+                                    height={ThoughtLinesImage.height}
+                                    className="absolute -right-7 sm:-right-10 top-1 !w-12 h-auto rotate-[15deg] drop-shadow-2xl"
+                                />
                             </div>
                             <div className="px-6 py-4 rounded-2xl bg-[#F4F6F6]">
                                 <p className="mb-4 text-left leading-7">
                                     "{testimonial.testimonial}"
                                 </p>
-                                <p className="flex items-center gap-1">
+                                <p className="flex items-center flex-wrap gap-1">
                                     <span className="font-semibold">
                                         {testimonial.name}
                                     </span>{" "}

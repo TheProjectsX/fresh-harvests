@@ -2,6 +2,7 @@ import AboutImage from "@/assets/images/about-image.png";
 import LogoWithTextImage from "@/assets/images/logo-with-text.png";
 import ProductPreview from "@/assets/images/about-product-preview.png";
 import LeafImage from "@/assets/images/leaf.png";
+import ThoughtLinesImage from "@/assets/images/thought-lines.png";
 
 import { SectionHeading } from "@/component/Heading";
 import Image from "next/image";
@@ -21,12 +22,12 @@ const AboutSection = () => {
                         alt="About Image"
                         className="w-full rounded-full"
                     />
-                    <div className="absolute right-12 bottom-0 flex flex-col items-end gap-2">
+                    <div className="absolute right-12 -bottom-4 flex flex-col items-end gap-2">
                         <Image
                             width={LogoWithTextImage.width}
                             height={LogoWithTextImage.height}
                             src={LogoWithTextImage.src}
-                            alt="About Product Preview"
+                            alt="Logo with Text"
                             className="w-[35%] rounded-md drop-shadow-2xl relative right-[5%]"
                         />
                         <Image
@@ -35,6 +36,15 @@ const AboutSection = () => {
                             src={ProductPreview.src}
                             alt="About Product Preview"
                             className="w-[30%] rounded-xl drop-shadow-2xl"
+                        />
+
+                        {/* Thought Lines */}
+                        <Image
+                            src={ThoughtLinesImage.src}
+                            alt="Thought Lines"
+                            width={ThoughtLinesImage.width}
+                            height={ThoughtLinesImage.height}
+                            className="absolute -right-8 sm:-right-10 top-2 w-8 sm:w-12 h-auto rotate-[15deg] drop-shadow-2xl"
                         />
                     </div>
 
