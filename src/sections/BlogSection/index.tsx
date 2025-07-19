@@ -1,9 +1,8 @@
 import BlogCard from "@/component/BlogCard";
 import { SectionHeading } from "@/component/Heading";
-import Image from "next/image";
-import Link from "next/link";
+import LeafImage from "@/assets/images/leaf.png";
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
 
 const BlogSection = () => {
     const blogPosts = [
@@ -31,7 +30,7 @@ const BlogSection = () => {
     ];
 
     return (
-        <section className="max-width">
+        <section className="relative max-width">
             <div className="max-w-[500px] mx-auto mb-8 text-center">
                 <SectionHeading content="Our Blog" className="mx-auto" />
                 <h3 className="font-medium text-3xl md:text-5xl mb-5">
@@ -50,6 +49,15 @@ const BlogSection = () => {
                     <BlogCard key={blog.id} blog={blog} />
                 ))}
             </div>
+
+            {/* Leaf */}
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute right-[20%] top-0 w-18 h-auto rotate-[-45deg] drop-shadow-2xl hidden md:inline"
+            />
         </section>
     );
 };

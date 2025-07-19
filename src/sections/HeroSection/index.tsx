@@ -2,6 +2,7 @@ import HeroImage from "@/assets/images/hero-image.png";
 import HeroOfferImage from "@/assets/images/hero-offer.png";
 import AppStoreImage from "@/assets/images/app-store.png";
 import PlayStoreImage from "@/assets/images/play-store.png";
+import LeafImage from "@/assets/images/leaf.png";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +12,9 @@ import { SectionHeading } from "@/component/Heading";
 const HeroSection = () => {
     return (
         <section className="relative pt-10 bg-slate-50 pb-15 sm:pb-0 overflow-x-hidden">
-            <div className="max-width py-20">
+            <div className="max-width py-20 z-10 relative">
                 <div className="max-w-[550px] relative z-10">
-                    <SectionHeading content="Welcome to Fresh Harvest"/>
+                    <SectionHeading content="Welcome to Fresh Harvest" />
                     <h3 className="text-3xl md:text-5xl lg:text-7xl font-medium mb-3 lg:mb-5">
                         Fresh Fruits and Vegetables
                     </h3>
@@ -78,6 +79,21 @@ const HeroSection = () => {
                 width={770}
                 height={860}
                 className="absolute translate-x-12 sm:translate-x-0 right-0 lg:right-[10%] bottom-0 w-[80%] max-w-[400px] md:max-w-[535px] md:w-[40%] h-auto"
+            />
+            {/* Leaf */}
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute right-[50%] md:right-[40%] top-[20%] w-14 sm:w-20 h-auto rotate-[-26deg] drop-shadow-2xl"
+            />
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute -left-[80px] top-[6%] rotate-[200deg] w-40 h-auto hidden md:inline drop-shadow-2xl"
             />
         </section>
     );

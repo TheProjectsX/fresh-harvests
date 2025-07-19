@@ -1,27 +1,55 @@
 import AboutImage from "@/assets/images/about-image.png";
+import LogoWithTextImage from "@/assets/images/logo-with-text.png";
 import ProductPreview from "@/assets/images/about-product-preview.png";
+import LeafImage from "@/assets/images/leaf.png";
+
 import { SectionHeading } from "@/component/Heading";
+import Image from "next/image";
 import React from "react";
 
 const AboutSection = () => {
     return (
         <section className="max-width flex flex-col md:flex-row items-center gap-10">
+            {/* Image */}
             <div className="relative md:bottom-10 w-full flex-1/2 flex items-center justify-center">
-                {/* BG */}
-
                 <div className="relative w-full max-w-96 md:max-w-lg">
                     {/* Image */}
-                    <img
+                    <Image
+                        width={AboutImage.width}
+                        height={AboutImage.height}
                         src={AboutImage.src}
                         alt="About Image"
                         className="w-full rounded-full"
                     />
-                    <img src={ProductPreview.src} alt="About Product Preview" className="w-2/6 rounded-xl absolute right-10 bottom-0 shadow-2xl"/>
+                    <div className="absolute right-12 bottom-0 flex flex-col items-end gap-2">
+                        <Image
+                            width={LogoWithTextImage.width}
+                            height={LogoWithTextImage.height}
+                            src={LogoWithTextImage.src}
+                            alt="About Product Preview"
+                            className="w-[35%] rounded-md drop-shadow-2xl relative right-[5%]"
+                        />
+                        <Image
+                            width={ProductPreview.width}
+                            height={ProductPreview.height}
+                            src={ProductPreview.src}
+                            alt="About Product Preview"
+                            className="w-[30%] rounded-xl drop-shadow-2xl"
+                        />
+                    </div>
 
-                    {/* <div className="absolute bottom-0 left-0 right-0 aspect-square bg-secondary rounded-full"></div> */}
+                    {/* Leaf */}
+                    <Image
+                        src={LeafImage.src}
+                        alt="Leaf"
+                        width={LeafImage.width}
+                        height={LeafImage.height}
+                        className="absolute right-[4%] top-[15%] w-14 sm:w-18 h-auto rotate-[-45deg] drop-shadow-2xl"
+                    />
                 </div>
             </div>
 
+            {/* Content */}
             <div className="flex-1/2">
                 <SectionHeading content="About Us" />
                 <h3 className="font-medium text-3xl md:text-5xl mb-5">

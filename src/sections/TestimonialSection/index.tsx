@@ -2,6 +2,7 @@
 
 import { SectionHeading } from "@/component/Heading";
 import { Carousel } from "react-responsive-carousel";
+import LeafImage from "@/assets/images/leaf.png";
 import Image from "next/image";
 
 const TestimonialSection = () => {
@@ -37,7 +38,7 @@ const TestimonialSection = () => {
     ];
 
     return (
-        <section className="max-width">
+        <section className="relative max-width">
             <div className="max-w-[500px] mx-auto mb-6 text-center">
                 <SectionHeading content="Testimonial" className="mx-auto" />
                 <h3 className="font-medium text-3xl md:text-5xl mb-5">
@@ -89,6 +90,22 @@ const TestimonialSection = () => {
                     ))}
                 </Carousel>
             </div>
+
+            {/* Leaves */}
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute right-0 md:right-[4%] -top-10 w-14 sm:w-18 h-auto rotate-[-45deg] drop-shadow-2xl"
+            />
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute left-4 md:left-[4%] top-0 w-14 sm:w-18 h-auto rotate- drop-shadow-2xl"
+            />
         </section>
     );
 };

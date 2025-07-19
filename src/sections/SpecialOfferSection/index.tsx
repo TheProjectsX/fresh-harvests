@@ -10,7 +10,7 @@ const SpecialOfferSection = () => {
 
     return (
         <section
-            className="w-full py-10 bg-no-repeat bg-center bg-auto text-center md:text-left"
+            className="w-full py-10 md:py-14 bg-no-repeat bg-center bg-auto text-center md:text-left"
             style={{ backgroundImage: `url(${BannerImage.src})` }}
         >
             <div className="max-width">

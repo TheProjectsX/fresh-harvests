@@ -1,10 +1,13 @@
 "use client";
 
+import LeafImage from "@/assets/images/leaf.png";
+
 import { SectionHeading } from "@/component/Heading";
 import ProductCard from "@/component/ProductCard";
 import { useFetchCategoriesQuery } from "@/store/features/categories/categoriesApiSlice";
 import { useFetchProductsQuery } from "@/store/features/products/productsApiSlice";
-import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export type Product = {
@@ -106,7 +109,7 @@ const ProductsSection = () => {
     }, [InitialCategories, isCategoriesLoading]);
 
     return (
-        <section className="max-width text-center">
+        <section className="relative max-width text-center">
             <div className="max-w-[500px] mx-auto mb-6">
                 <SectionHeading content="Our Products" className="mx-auto" />
                 <h3 className="font-medium text-3xl md:text-5xl mb-5">
@@ -172,6 +175,22 @@ const ProductsSection = () => {
                     {showAllProducts ? "Hide Products" : "See All Products"}
                 </button>
             )}
+
+            {/* Leaves */}
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute right-0 md:right-[4%] -top-10 w-14 sm:w-18 h-auto rotate-[-45deg] drop-shadow-2xl"
+            />
+            <Image
+                src={LeafImage.src}
+                alt="Leaf"
+                width={LeafImage.width}
+                height={LeafImage.height}
+                className="absolute left-4 md:left-[4%] top-0 w-14 sm:w-18 h-auto rotate- drop-shadow-2xl"
+            />
         </section>
     );
 };

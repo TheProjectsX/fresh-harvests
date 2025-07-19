@@ -32,41 +32,86 @@ const Footer = () => {
 
                     {/* Internal Links */}
                     <div className="flex justify-between w-full md:w-auto md:flex-3/5 mb-6 md:mb-0 flex-wrap md:flex-nowrap gap-4">
-                        <ul className="font-secondary text-xs md:text-sm space-y-2.5">
+                        <ul className="font-secondary text-xs md:text-sm space-y-2.5 z-10">
                             <li className="font-primary font-semibold text-xs md:text-base">
                                 Quick links 1
                             </li>
                             <li>
-                                <Link href={"#"}>Home</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Home
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Shop</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Shop
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>About Us</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    About Us
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Blog</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Blog
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Detail Blog</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Detail Blog
+                                </Link>
                             </li>
                         </ul>
-                        <ul className="font-secondary text-xs md:text-sm space-y-2.5">
+                        <ul className="font-secondary text-xs md:text-sm space-y-2.5 z-10">
                             <li className="font-primary font-semibold text-xs md:text-base">
                                 Quick links 2
                             </li>
                             <li>
-                                <Link href={"#"}>Favorites</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Favorites
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Cart</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Cart
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Sign In</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Sign In
+                                </Link>
                             </li>
                             <li>
-                                <Link href={"#"}>Register</Link>
+                                <Link
+                                    href={"#"}
+                                    className="hover:underline underline-offset-4"
+                                >
+                                    Register
+                                </Link>
                             </li>
                         </ul>
                         <ul className="font-secondary text-xs md:text-sm space-y-2.5">
@@ -76,7 +121,7 @@ const Footer = () => {
                             <li>
                                 <Link
                                     href={"tel:+1234567890"}
-                                    className="flex items-center gap-1"
+                                    className="flex items-center gap-1 hover:underline underline-offset-4"
                                 >
                                     <BsTelephone /> 1234 5678 90
                                 </Link>
@@ -84,7 +129,7 @@ const Footer = () => {
                             <li>
                                 <Link
                                     href={"mailto:freshharvests@gmail.com"}
-                                    className="flex items-center gap-1"
+                                    className="flex items-center gap-1 hover:underline underline-offset-4"
                                 >
                                     {" "}
                                     <IoMailOutline />
